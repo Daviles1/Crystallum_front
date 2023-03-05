@@ -93,7 +93,7 @@ async function getBalance() {
     const contract = new ethers.Contract(contractAddress, abi, signer);
     try {
       //Appelle la fonction "getBalance" du contrat qui récupère le montant du wallet de l'utilisateur en fonction des bouteilles placées
-      const balance = await contract.getBalance(signer.address);
+      const balance = await contract.getBalance(signer.getAddress());
       console.log(ethers.utils.formatEther(balance));
     } catch (error) {
       console.log(error);
