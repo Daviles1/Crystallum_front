@@ -6,17 +6,23 @@
 </head>
 
 <body>
+    <!-- Bouton pour se connecter à Metamask -->
     <button id="connectButton">Connect</button>
+
+    <!-- Bouton pour savoir le montant d'Ether récupéré grâce aux bouteilles -->
     <button id="balanceButton">Get balance</button>
 
+    <!-- Bouton pour ajouter des fonds dans le contrat (disparaitra plus tard quand on aura créé le token) -->
     <label for="ethAmount">ETH Amount</label>
     <input id="ethAmount" placeholder="1" type="number" />
     <button type="button" id="fundButton"> Fund </button>
 
+    <!-- Bonton pour changer la valeur de bouteilles qu'on a placés dans la machine (sera replacé par un QR Code qui appelra la même fonction) -->
     <label for="bottles">Number of bottles</label>
     <input id="bottles" placeholder="10" type="number" />
     <button type="button" id="bottlesButton"> Set bottles </button>
 
+    <!-- Bouton pour récupérer l'Ether en fonction du nombre de bouteilles placées dans la machine -->
     <button id="retrieveButton">Retrieve</button>
 
 </body>

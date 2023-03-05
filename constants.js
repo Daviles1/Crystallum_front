@@ -1,4 +1,4 @@
-//Imports de l'adresse du contrat et de l'ABI avec toutes les fonctions du contrat
+//Exports de l'adresse du contrat et de l'ABI avec toutes les fonctions du contrat
 
 export const contractAddress = "0x811b6F85C90113C1529bb373991F37daa382373e";
 export const abi = [
