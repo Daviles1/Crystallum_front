@@ -7,23 +7,42 @@
 
 <body>
     <!-- Bouton pour se connecter à Metamask -->
+    <div>
     <button id="connectButton">Connect</button>
+    </div>
 
     <!-- Bouton pour savoir le montant d'Ether récupéré grâce aux bouteilles -->
+    <div>
     <button id="balanceButton">Get balance</button>
+    </div>
 
     <!-- Bouton pour ajouter des fonds dans le contrat (disparaitra plus tard quand on aura créé le token) -->
+    <div>
     <label for="ethAmount">ETH Amount</label>
     <input id="ethAmount" placeholder="1" type="number" />
     <button type="button" id="fundButton"> Fund </button>
+    </div>
 
-    <!-- Bonton pour changer la valeur de bouteilles qu'on a placés dans la machine (sera replacé par un QR Code qui appelra la même fonction) -->
+    <!-- Bonton pour changer la valeur de bouteilles qu'on a placés dans la machine (sera replacé par un QR Code qui appelera la même fonction) -->
+    <div>
     <label for="bottles">Number of bottles</label>
     <input id="bottles" placeholder="10" type="number" />
     <button type="button" id="bottlesButton"> Set bottles </button>
+    </div>
 
     <!-- Bouton pour récupérer l'Ether en fonction du nombre de bouteilles placées dans la machine -->
+    <div>
     <button id="retrieveButton">Retrieve</button>
+    </div>
+
+    <!-- Bouton pour envoyer ses propres fonds (sera replacé par un QR Code qui appelera la même fonction) -->
+    <div>
+    <label for="ethAmountToSend">ETH Amount</label>
+    <input id="ethAmountToSend" placeholder="1" type="number" />
+    <label for="address">Adresse</label>
+    <input id="address" placeholder="0x000000000000000" type="text"/>
+    <button type="button" id="sendButton"> Send </button>
+    </div>
 
 </body>
 

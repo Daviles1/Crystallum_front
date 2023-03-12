@@ -1,6 +1,6 @@
 //Exports de l'adresse du contrat et de l'ABI avec toutes les fonctions du contrat
 
-export const contractAddress = "0x811b6F85C90113C1529bb373991F37daa382373e";
+export const contractAddress = "0xDC4b7eb486A7cD6D1E515E083207c2FC84033318";
 export const abi = [
   {
     inputs: [
@@ -104,6 +104,19 @@ export const abi = [
   {
     inputs: [],
     name: "retrieve",
+    outputs: [],
+    stateMutability: "payable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "address payable",
+        name: "_to",
+        type: "address",
+      },
+    ],
+    name: "send",
     outputs: [],
     stateMutability: "payable",
     type: "function",

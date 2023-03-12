@@ -9,12 +9,14 @@ const retrieveButton = document.getElementById("retrieveButton");
 const fundButton = document.getElementById("fundButton");
 const balanceButton = document.getElementById("balanceButton");
 const bottlesButton = document.getElementById("bottlesButton");
+const sendButton = document.getElementById("sendButton");
 
 connectButton.onclick = connect;
 retrieveButton.onclick = retrieve;
 fundButton.onclick = fundContract;
 balanceButton.onclick = getBalance;
 bottlesButton.onclick = setBottles;
+sendButton.onclick = send;
 
 //Fonction permettant de se connecter à Metamask (wallet)
 async function connect() {
@@ -69,7 +71,7 @@ async function fundContract() {
     //Définit le contrat
     const contract = new ethers.Contract(contractAddress, abi, signer);
     try {
-      //Appelle la fonction "funcContract" du contrat qui permet de rajouter des fonds dans le contrat
+      //Appelle la fonction "fundContract" du contrat qui permet de rajouter des fonds dans le contrat
       const transactionResponse = await contract.fundContract({
         value: ethers.utils.parseEther(ethAmount),
       });
@@ -117,7 +119,34 @@ async function setBottles() {
     const contract = new ethers.Contract(contractAddress, abi, signer);
     try {
       //Appelle la fonction "setBottles" du contrat
-      await contract.setBottles(numberOfBottles);
+      const transactionResponse = await contract.setBottles(numberOfBottles);
+      await listenForTransactionMine(transactionResponse, provider);
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    balanceButton.innerHTML = "Please install MetaMask";
+  }
+}
+
+//Fonction permettant d'envoyer des fonds
+async function send() {
+  const ethAmount = document.getElementById("ethAmountToSend").value;
+  const address = document.getElementById("address").value;
+  console.log(`You send ${ethAmount} Ether to ${address}...`);
+  if (typeof window.ethereum !== "undefined") {
+    //Se connecte à la blockchain
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    //Récupère le wallet de l'utilisateur
+    const signer = provider.getSigner();
+    //Définit le contrat
+    const contract = new ethers.Contract(contractAddress, abi, signer);
+    try {
+      //Appelle la fonction "send" du contrat
+      const transactionResponse = await contract.send(address, {
+        value: ethers.utils.parseEther(ethAmount),
+      });
+      await listenForTransactionMine(transactionResponse, provider);
     } catch (error) {
       console.log(error);
     }
