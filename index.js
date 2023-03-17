@@ -10,6 +10,7 @@ const fundButton = document.getElementById("fundButton");
 const balanceButton = document.getElementById("balanceButton");
 const bottlesButton = document.getElementById("bottlesButton");
 const sendButton = document.getElementById("sendButton");
+const getBottlesButton = document.getElementById("getBottlesButton")
 
 connectButton.onclick = connect;
 retrieveButton.onclick = retrieve;
@@ -17,6 +18,7 @@ fundButton.onclick = fundContract;
 balanceButton.onclick = getBalance;
 bottlesButton.onclick = setBottles;
 sendButton.onclick = send;
+getBottlesButton.onclick = getBottles;
 
 //Fonction permettant de se connecter à Metamask (wallet)
 async function connect() {
@@ -96,7 +98,28 @@ async function getBalance() {
     try {
       //Appelle la fonction "getBalance" du contrat qui récupère le montant du wallet de l'utilisateur en fonction des bouteilles placées
       const balance = await contract.getBalance(signer.getAddress());
-      console.log(ethers.utils.formatEther(balance));
+      alert(`You have ${ethers.utils.formatEther(balance)} Ether`);
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    balanceButton.innerHTML = "Please install MetaMask";
+  }
+}
+
+//Fonction permettant à l'utilisateur de savoir combien de bouteilles il a mis dans la machine
+async function getBottles() {
+  if (typeof window.ethereum !== "undefined") {
+    //Se connecte à la blockchain
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    //Récupère le wallet de l'utilisateur
+    const signer = provider.getSigner();
+    //Définit le contrat
+    const contract = new ethers.Contract(contractAddress, abi, signer);
+    try {
+      //Appelle la fonction "getNumberOfBottles" du contrat qui récupère le montant de bouteilles placées
+      const bottles = await contract.getNumberOfBottles(signer.getAddress());
+      alert(`You put ${bottles} bottles`);
     } catch (error) {
       console.log(error);
     }

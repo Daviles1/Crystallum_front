@@ -1,0 +1,122 @@
+/* Définition des couleurs */
+:root {
+    --white: #fff;
+    --black: #000;
+    --primary: #007bff;
+    --secondary: #6c757d;
+    --success: #28a745;
+    --danger: #dc3545;
+    --info: #17a2b8;
+    --light: #f8f9fa;
+    --dark: #343a40;
+  }
+  
+  /* Reset CSS */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Style de la page */
+  html {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  body {
+    background-color: var(--light);
+  }
+  
+  /* En-tête de page */
+  header {
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 1rem;
+  }
+  
+  h1 {
+    text-align: center;
+    color: var(--primary);
+    font-size: 2rem;
+  }
+  
+  /* Conteneur principal */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  /* Formulaire */
+  form {
+    background-color: var(--white);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 2rem;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  form > * {
+    margin: 1rem 0;
+  }
+  
+  label {
+    font-weight: bold;
+  }
+  
+  input[type="number"],
+  input[type="text"] {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid var(--secondary);
+    width: 100%;
+    font-size: 1rem;
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    background-color: var(--primary);
+    color: var(--white);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    font-size: 1rem;
+  }
+  
+  button:hover {
+    background-color: #0062cc;
+  }
+  
+  /* Styles spécifiques aux boutons */
+  #connectButton {
+    background-color: var(--success);
+  }
+  
+  #retrieveButton {
+    background-color: var(--danger);
+  }
+  
+  #fundButton,
+  #bottlesButton,
+  #sendButton {
+    background-color: var(--secondary);
+  }
+  
+  #balanceButton,
+  #getBottlesButton {
+    background-color: var(--info);
+  }
+  
+  /* Réactivité */
+  @media screen and (min-width: 768px) {
+    .container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 2rem;
+    }
+  }
+  

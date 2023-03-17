@@ -1,6 +1,6 @@
 //Exports de l'adresse du contrat et de l'ABI avec toutes les fonctions du contrat
 
-export const contractAddress = "0xDC4b7eb486A7cD6D1E515E083207c2FC84033318";
+export const contractAddress = "0xA2caB4B083Fb5F587907fA62236aC6B4cD8389fD";
 export const abi = [
   {
     inputs: [
